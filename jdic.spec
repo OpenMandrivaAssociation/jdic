@@ -11,6 +11,7 @@ Patch1:		jdic-WebBrowserUtil_fixbuild.patch
 Patch2:		jdic-mozilla_makefile.patch
 Patch3:		jdic-mozembed.patch
 Patch4:		jdic-build_libdir.patch
+Patch5:		jdic-jni_makefile.patch
 BuildRequires:	java-sdk-icedtea
 BuildRequires:	ant libgnome2-devel mozilla-firefox-devel nspr-devel
 BuildRequires:	gtk2-devel
@@ -38,6 +39,7 @@ Javadoc for JDIC
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 %{__sed} -i 's|<property name="usr.lib.dir".*|<property name="usr.lib.dir" value="%{_libdir}" />|' jdic/build.xml
 
 
