@@ -12,6 +12,7 @@ Patch2:		jdic-mozilla_makefile.patch
 Patch3:		jdic-mozembed.patch
 BuildRequires:	java-sdk-icedtea
 BuildRequires:	ant libgnome2-devel mozilla-firefox-devel nspr-devel
+BuildRequires:	gtk2-devel
 Requires:	java >= 1.7.0
 %description
 The JDesktop Integration Components (JDIC) project aims to make Java™
