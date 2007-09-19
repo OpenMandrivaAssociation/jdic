@@ -1,6 +1,6 @@
 Name:		jdic
 Version:	0.9.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	The JDesktop Integration Components (JDIC)
 URL:		https://jdic.dev.java.net/
 Group:		Development/Java
