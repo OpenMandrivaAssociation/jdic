@@ -4,6 +4,7 @@ Release:	%mkrel 2
 Summary:	The JDesktop Integration Components (JDIC)
 URL:		https://jdic.dev.java.net/
 Group:		Development/Java
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	LGPLv2+
 Source:		jdic-%{version}-src.zip
 Patch0:		jdic-disable_jnlp.patch
