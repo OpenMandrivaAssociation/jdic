@@ -1,6 +1,6 @@
 Name:		jdic
 Version:	0.9.3
-Release:	%mkrel 2
+Release:	%mkrel 2.1
 Summary:	The JDesktop Integration Components (JDIC)
 URL:		https://jdic.dev.java.net/
 Group:		Development/Java
@@ -13,10 +13,10 @@ Patch2:		jdic-mozilla_makefile.patch
 Patch3:		jdic-mozembed.patch
 Patch4:		jdic-build_libdir.patch
 Patch5:		jdic-jni_makefile.patch
-BuildRequires:	java-sdk-icedtea
+BuildRequires:	java-rpmbuild
 BuildRequires:	ant libgnome2-devel mozilla-firefox-devel nspr-devel
 BuildRequires:	gtk2-devel
-Requires:	java >= 1.7.0
+Requires:	java >= 1.6.0
 %description
 The JDesktop Integration Components (JDIC) project aims to make Java™
 technology-based applications ("Java applications") first-class citizens
@@ -46,9 +46,7 @@ Javadoc for JDIC
 
 %build
 cd jdic
-export JAVA_HOME=/usr/lib/jvm/java-icedtea
-export PATH=$JAVA_HOME/bin:$PATH
-ant buildall
+%ant buildall
 
 %install
 %{__rm} -Rf %{buildroot}
