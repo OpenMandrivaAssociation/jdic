@@ -1,0 +1,22 @@
+--- jdic-0.9.3-src/jdic/build.xml	2007-07-13 16:48:45.000000000 +0200
++++ jdic-0.9.3-src.n/jdic/build.xml	2007-09-18 22:29:16.000000000 +0200
+@@ -40,6 +40,8 @@
+   <property name="unix.classes.defmailer.dir"
+             value="${src.dir}/unix/classes/org/jdesktop/jdic/desktop/internal/impl/" />
+ 
++  <property name="usr.lib.dir" value="/usr/lib" />
++
+   <property name="unix.native.dir"         value="${src.dir}/unix/native" />
+   <property name="unix.native.jni.dir"     value="${unix.native.dir}/jni" />
+   <property name="unix.native.mozilla.dir" value="${unix.native.dir}/mozilla" />
+@@ -331,7 +333,9 @@
+   <!-- *** Build Unix native JNI code *** -->
+   <target name="buildunixjni" depends="init"
+           description="build native jni libraries." >
+-    <exec dir="${unix.native.jni.dir}" executable="make" failonerror="yes" />
++	  <exec dir="${unix.native.jni.dir}" executable="make" failonerror="yes">
++		  <arg value="USR_LIB_DIR=${usr.lib.dir}" />
++	  </exec>
+ 
+     <!-- copy generated .so file -->
+     <copy file="${unix.native.jni.dir}/libjdic.so" todir="${dist.dir}" />

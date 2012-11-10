@@ -1,0 +1,53 @@
+--- jdic-0.9.3-src/jdic/src/unix/native/mozilla/Makefile	2005-05-19 10:48:22.000000000 +0200
++++ jdic-0.9.3-src.n/jdic/src/unix/native/mozilla/Makefile	2007-09-12 20:02:14.000000000 +0200
+@@ -47,8 +47,8 @@
+ # For Gecko SDK 1.6 or ealier, enable USING_GECKO_SDK_1_4. Or else, enable 
+ # USING_GECKO_SDK_1_7.
+ #
+-USING_GECKO_SDK_1_4 = 1
+-#USING_GECKO_SDK_1_7 = 1
++#USING_GECKO_SDK_1_4 = 1
++USING_GECKO_SDK_1_7 = 1
+ 
+ # set gtk version
+ #
+@@ -124,14 +124,14 @@
+ endif
+ 
+ ifdef MOZ_ENABLE_GTK2
+-CPPFLAGS += -DMOZ_WIDGET_GTK2
++CPPFLAGS += -DMOZ_WIDGET_GTK2 `firefox-config --cflags xpcom --defines`
+ # XXX need to get these from pkg-config perhaps?
+ LIBS += $(XLDFLAGS) $(XLIBS)
+-LIBS_PROG += -L$(MOZILLA_DIST) -lgtkembedmoz -lxpcom
++LIBS_PROG += -L$(MOZILLA_DIST) -lgtkembedmoz `firefox-config --libs xpcom` -lxpcom_core -lgtkembedmoz
+ endif
+ 
+ CPPFLAGS += \
+-	-DXPCOM_GLUE -DMOZILLA_STRICT_API \
++	-DMOZILLA_STRICT_API \
+ 	-I. \
+ 	-I../../../share/native/utils \
+ 	-I../../../share/native/mozilla \
+@@ -160,13 +160,17 @@
+ ifdef USING_GECKO_SDK_1_7
+ CPPFLAGS += \
+         -DUSING_GECKO_SDK_1_7 \
+-	-include $(GECKO_SDK)/include/mozilla-config.h \
+-	-I$(GECKO_SDK)/include \
++	-include mozilla-config.h \
+ 	$(NULL)
++#	-include $(GECKO_SDK)/include/mozilla-config.h \
++#	-I$(GECKO_SDK)/include \
++#	$(NULL)
+ LIBS += \
+-	-L$(GECKO_SDK)/lib -lxpcomglue_s \
+-	-L$(GECKO_SDK)/bin -lxpcom -lnspr4 -lplds4 -lplc4 \
++	`firefox-config --libs xpcom` \
+ 	$(NULL)
++#	-L$(GECKO_SDK)/lib -lxpcomglue_s \
++#	-L$(GECKO_SDK)/bin -lxpcom -lnspr4 -lplds4 -lplc4 \
++#	$(NULL)
+ endif
+ 
+ ifeq ($(OS_ARCH), SunOS)

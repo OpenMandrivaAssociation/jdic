@@ -1,0 +1,11 @@
+--- jdic-0.9.3-src/jdic/src/unix/native/jni/Makefile	2007-04-25 11:48:22.000000000 +0200
++++ jdic-0.9.3-src.n/jdic/src/unix/native/jni/Makefile	2007-09-18 22:41:47.000000000 +0200
+@@ -38,7 +38,7 @@
+   ifeq ($(UNAME), Linux)
+     PLATFORM = linux
+     CXX = g++
+-    CXXFLAGS = -c
++    CXXFLAGS = -c -fPIC
+     LDFLAGS = -shared -fPIC -ldl -lrt -lpthread
+   endif
+   ifeq ($(UNAME), FreeBSD)

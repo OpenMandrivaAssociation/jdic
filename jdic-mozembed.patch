@@ -1,0 +1,11 @@
+--- jdic-0.9.3-src/jdic/src/unix/native/mozilla/MozEmbed.cpp	2005-05-19 05:41:22.000000000 +0200
++++ jdic-0.9.3-src.n/jdic/src/unix/native/mozilla/MozEmbed.cpp	2007-09-12 15:52:28.000000000 +0200
+@@ -36,6 +36,8 @@
+  *
+  * ***** END LICENSE BLOCK ***** */
+ 
++#include "mozilla-config.h"
++#include "prlock.h"
+ #include "MozEmbed.h"
+ #include "MsgServer.h"
+ #include "Message.h"
